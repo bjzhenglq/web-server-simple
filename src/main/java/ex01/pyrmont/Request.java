@@ -34,6 +34,12 @@ public class Request {
         uri = parseUri(request.toString());
     }
 
+    /**
+     * the request string is standard http format, like
+     * GET /index.html, then the second " " resource is requested.
+     * @param requestString
+     * @return
+     */
     public String parseUri(String requestString) {
         int index1, index2;
         index1 = requestString.indexOf(' ');
