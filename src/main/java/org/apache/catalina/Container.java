@@ -177,7 +177,7 @@ public interface Container {
     /**
      * Set the Cluster with which this Container is associated.
      *
-     * @param connector The Connector to be added
+     * @param cluster The Connector to be added
      */
     public void setCluster(Cluster cluster);
 
