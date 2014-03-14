@@ -32,6 +32,7 @@ public class HttpServer {
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
+            System.out.print("");
         }
         while (!shutdown) {
             try {
