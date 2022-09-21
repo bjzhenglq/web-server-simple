@@ -1102,7 +1102,6 @@ System.out.println("init");
             // Identify the appBase of the owning Host of this Context (if any)
             String appBase = null;
             File appBaseDir = null;
-            String appBasePath = null;
             if (context.getParent() instanceof Host) {
                 appBase = ((Host) context.getParent()).getAppBase();
                 appBaseDir = new File(appBase);
@@ -1110,7 +1109,6 @@ System.out.println("init");
                     appBaseDir = new File(System.getProperty("catalina.base"),
                                           appBase);
                 }
-                appBasePath = appBaseDir.getCanonicalPath();
             }
 
             // Validate the docBase path of this application
@@ -1121,7 +1119,7 @@ System.out.println("init");
                 docBaseDir = new File(appBaseDir, docBase);
             }
             String docBasePath = docBaseDir.getCanonicalPath();
-            if (!docBasePath.startsWith(deployedPath)) {
+            if (!docBaseDir.getCanonicalFile().toPath().startsWith(deployedPath)) {
                 writer.println(sm.getString("managerServlet.noDocBase",
                                             displayPath));
                 return;
